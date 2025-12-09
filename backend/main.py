@@ -4,7 +4,18 @@ import os, json
 from services.accounts import create_account, get_account
 from services.demo_engine import place_demo_bet
 from dotenv import load_dotenv
-load_dotenv()
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/api/health")
+def health():
+    return {"status": "online", "app": "AnalisesEsportivasPro"}
+
+
+
+load_dotenv()  
+
 
 app = FastAPI(title="Sports Analyzer API")
 
